@@ -1,31 +1,31 @@
 Key Features
 Interactive Vector Creation: Click to create vectors that animate in real-time.
-Dynamic Color Transitions: Lines change color according to vector proximity and speed, creating a continuous, evolving gradient effect.
+Dynamic Color Transitions: Lines shift color based on vector proximity and speed, creating an evolving gradient effect.
 Adjustable Parameters: Easily modify vector behavior, lifespan, and display options for custom effects.
 Customization Guide
-This guide will walk you through tweaking the core behavior, colors, and user interaction to make the tool your own.
+This guide will help you adjust core behaviors, colors, and user interaction, making it easy to personalize the tool.
 
 1. Tweak Animation and Vector Dynamics
-The following parameters allow you to adjust how vectors behave and display on screen. These are defined at the top of the code for easy access:
+Several parameters control vector behavior and display. Adjust them as needed; they’re defined at the top of the code for easy access:
 
-dt: The time interval (in milliseconds) that controls how often the screen updates. Lowering this value will make the animation appear smoother but may increase CPU load.
-dn: The number of new lines generated per second, determining how densely lines populate the canvas.
-k: This is a multiplier for vector strength. It controls how strongly each vector interacts with others. Higher values will make vector forces more pronounced, amplifying motion.
-lifetime: Sets the lifespan of each point in frames before it disappears. Use this to control the “trailing” effect of lines across the canvas.
-linecol: The initial RGB color of the lines. This color shifts dynamically based on vector proximity, but you can adjust the starting hue here.
+dt: The time interval (in milliseconds) that controls how often the screen updates. Lowering this value will make the animation smoother but may increase CPU load.
+dn: The number of new lines generated per second. This affects the density of lines on the canvas.
+k: A multiplier for vector strength, which affects how strongly each vector interacts with others. Higher values amplify motion.
+lifetime: The lifespan of each point in frames before it disappears, creating a trailing effect.
+linecol: The initial RGB color of the lines. This base color will shift dynamically as vectors move.
 2. Customize Color Transitions
-The color() function maps vector distance to a hue scale. Colors are calculated based on the proximity of vectors, creating gradient effects that change as vectors move closer or farther apart. You can fine-tune these effects by modifying:
+The color() function maps vector distance to a hue scale, so colors change based on vector proximity. To modify these effects:
 
-max in the color() function: This sets the maximum distance used to calculate color shifts. Lowering this value will cause colors to transition more dramatically over shorter distances.
-Hue Calculation: The hue calculation within color() creates the gradient based on a normalized distance. Adjusting the formula here can produce different color effects, such as shifting the hue range.
+max in the color() function sets the maximum distance for color shifts. Lowering this value makes colors transition more dramatically over shorter distances.
+Hue Calculation: The hue formula within color() determines the gradient based on distance. Adjusting it will produce different color schemes.
 3. Modify User Interactions
-Interactions are set up to let users create or remove vectors on the  canvas through clicks and key presses:
+You can customize interactions to make the tool respond differently:
 
-Click Events: In add_vector(), left-clicking on the canvas creates or extends a vector between two points. If you’d like to introduce other interactions, you could modify this function to respond differently based on mouse button, double-clicks, or other event types.
-Key Binding: Pressing the e key toggles vector visibility, helping clear the view temporarily. This is managed in clear(). To add other key-based actions, you can bind additional keys using root.bind('<key>', function).
+Click Events: add_vector() captures left-clicks on the canvas to create or extend vectors. Modify this function to introduce new interactions, such as double-clicking to change colors or using right-clicks for different effects.
+Key Bindings: Pressing e toggles vector visibility, which clears the view temporarily. You can add additional key-based actions using root.bind('<key>', function).
 4. Adjust Canvas Size and Layout
-The canvas size is set by screen_width and screen_height. You can modify these dimensions to better suit your screen or project. A smaller canvas can increase vector density, while a larger one allows for more spread-out interactions.
+Customize the canvas dimensions by modifying screen_width and screen_height. Smaller canvases increase vector density, while larger canvases spread out the interactions. This change affects overall layout and animation style.
 
 5. Exploring Additional Customizations
-Main Animation Loop (main()): This function handles refreshing the canvas, drawing vectors, and managing the lifetime of each point. Feel free to tweak the drawing styles here, such as changing line thickness, adding new shapes, or adjusting movement patterns.
-Random Line Placement: By default, new lines spawn randomly across the canvas each frame. You could modify this behavior to control where or how often new lines are generated, creating patterns or specific start points for each line.
+Main Animation Loop (main()): This function refreshes the canvas, draws vectors, and manages the lifespan of each point. Experiment here to adjust drawing styles, change line thickness, add new shapes, or explore different movement patterns.
+Random Line Placement: By default, new lines spawn randomly on the canvas each frame. You could modify this to control where new lines appear or introduce patterns, creating structured start points or specific line flows.
