@@ -19,7 +19,7 @@ The color() function maps vector distance to a hue scale. Colors are calculated 
 max in the color() function: This sets the maximum distance used to calculate color shifts. Lowering this value will cause colors to transition more dramatically over shorter distances.
 Hue Calculation: The hue calculation within color() creates the gradient based on a normalized distance. Adjusting the formula here can produce different color effects, such as shifting the hue range.
 3. Modify User Interactions
-Interactions are set up to let users create or remove vectors on the canvas through clicks and key presses:
+Interactions are set up to let users create or remove vectors on the  canvas through clicks and key presses:
 
 Click Events: In add_vector(), left-clicking on the canvas creates or extends a vector between two points. If you’d like to introduce other interactions, you could modify this function to respond differently based on mouse button, double-clicks, or other event types.
 Key Binding: Pressing the e key toggles vector visibility, helping clear the view temporarily. This is managed in clear(). To add other key-based actions, you can bind additional keys using root.bind('<key>', function).
